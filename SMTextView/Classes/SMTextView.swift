@@ -86,7 +86,7 @@ import UIKit
 
     //MARK: - Additional Views
     fileprivate var placeholderTextView: UITextView!
-    fileprivate var counterLabel: UILabel!
+    public var counterLabel: UILabel!
 
 
     //MARK: - Overrides
@@ -167,7 +167,7 @@ extension SMTextView {
 
 //MARK: - Update Methods
 extension SMTextView {
-    fileprivate func updateCounterLabel() {
+    public func updateCounterLabel() {
         setNeedsLayout()
         layoutIfNeeded()
 
