@@ -16,13 +16,13 @@ import UIKit
             refreshPlaceholderInput()
         }
     }
-    @IBInspectable public var placeholder: String = "Placeholder" {
+    @IBInspectable public var placeholderText: String = "" {
         didSet {
             adjustPlaceholder()
             refreshPlaceholderInput()
         }
     }
-    @IBInspectable public var placeholderColor: UIColor = .lightGray {
+    @IBInspectable public var placeholderTextColor: UIColor = .lightGray {
         didSet {
             refreshPlaceholderInput()
         }
@@ -146,8 +146,8 @@ extension SMTextView {
     fileprivate func initPlaceholder() {
         placeholderTextView = UITextView(frame: bounds)
         placeholderTextView.font = font
-        placeholderTextView.text = placeholder
-        placeholderTextView.textColor = placeholderColor
+        placeholderTextView.text = placeholderText
+        placeholderTextView.textColor = placeholderTextColor
         placeholderTextView.textAlignment = textAlignment
         placeholderTextView.backgroundColor = .clear
         placeholderTextView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(placeholderTapped)))
@@ -187,7 +187,7 @@ extension SMTextView {
     fileprivate func refreshPlaceholderInput() {
         textViewDidChange(self)
         placeholderTextView.font = font
-        placeholderTextView.textColor = placeholderColor
+        placeholderTextView.textColor = placeholderTextColor
         placeholderTextView.textAlignment = textAlignment
     }
     fileprivate func updateInsets() {
@@ -205,7 +205,7 @@ extension SMTextView {
             placeholderTextView.text = ""
             placeholderTextView.isHidden = true
         }else {
-            placeholderTextView.text = placeholder
+            placeholderTextView.text = placeholderText
             placeholderTextView.isHidden = false
         }
     }
