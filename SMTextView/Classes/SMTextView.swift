@@ -131,7 +131,7 @@ import UIKit
     }
 
     //MARK: Actions
-    func placeholderTapped(_ recognizer: UITapGestureRecognizer) {
+    @objc func placeholderTapped(_ recognizer: UITapGestureRecognizer) {
         _ = self.becomeFirstResponder()
     }
 
