@@ -215,13 +215,13 @@ extension SMTextView {
 extension SMTextView: UITextViewDelegate {
     public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if isCharacterCountEnabled {
-            return textView.text.characters.count + text.characters.count - range.length <= maxCharacterCount
+            return textView.text.count + text.count - range.length <= maxCharacterCount
         }
         return true
     }
     public func textViewDidChange(_ textView: UITextView) {
         if isCharacterCountEnabled {
-            let count = textView.text.characters.count
+            let count = textView.text.count
             counterLabel.text = "\(count)/\(maxCharacterCount)"
             updateCounterLabel()
         }
